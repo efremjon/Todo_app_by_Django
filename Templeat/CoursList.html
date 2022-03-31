@@ -1,0 +1,35 @@
+{% extends 'admin.html' %}
+{% block content %}
+{% load static %}
+  <div class="container-fluid">
+    <br>
+
+    
+    <div class="border p-4 shadow-lg bg-white">
+      <br>
+      <h3 class="text-center">Cours_Lists</h3>
+      <hr>
+      <br>
+            
+              {% for i in all_Cours %}
+              <div class="border p-3 mb-3 shadow">
+               <p>{{i.cours_name}}
+              <div class="col-md-4 text-start">
+                 <a class="btn btn-info btn-sm" href="#" role="button">Edit</a>
+                 <a class="btn btn-danger btn-sm" href="#" role="button">Delete</a>
+          </div>
+        </p> 
+         </div>
+             {% endfor %}  
+          </div> 
+
+
+         
+
+
+
+      </div>
+      
+</div>
+
+{% endblock %}

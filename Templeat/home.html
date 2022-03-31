@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+{% block content %}
+{% load static %}
+
+<div class="px-4 py-5 my-5 text-center bg-light">
+  <img class="d-block mx-auto mb-4" src="../assets/brand/bootstrap-logo.svg" alt="" width="72" height="57">
+  <h1 class="display-5 fw-bold">CES-Tutorial</h1>
+  <div class="col-lg-6 mx-auto">
+    <p class="lead mb-4">This is tutorial center we proved alot of cours from computer science and Engenerring department 
+  
+      <div class="input-group mb-3">
+      <input type="text" class="form-control" placeholder="Search by Cours Name" aria-label="Recipient's username" aria-describedby="button-addon2">
+      <button class="btn btn-success btn-outline-secondry" type="button" id="button-addon2">Search</button>
+    </div>
+  </div>
+</div>
+<hr>
+<br>
+<br>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-2">
+
+    </div>
+            <div class="col-8">
+              <div class="border p-3 md-3 ">
+                <div class="album py-5 bg-light">
+                  <div class="container">
+                    <div class="row row-cols-3 row-cols-sm-4 row-cols-md-5 g-3">
+                      {% for cours in all_Cours %}
+                      <div class="col">
+                        <div class="card shadow-sm text-center">
+                          <a href="{% url 'index' cours.id %}">
+                          <img src="{{cours.img.url}}" class="rounded" alt="..." width="30%" height="40%">
+                          <div class="card-body">
+                           <p class="card-text text-center btn">{{cours.cours_name}}</p>
+                          </div>
+                        </a>
+                        </div>
+                      </div>
+                      {% endfor %}     
+                </div>
+              </div>
+
+     <div class="col-2">
+    
+    </div>
+  </div>
+</div>
+<br>
+<br>
+<br>
+{% endblock %}

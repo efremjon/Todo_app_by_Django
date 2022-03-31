@@ -1,0 +1,35 @@
+{% extends 'admin.html' %}
+{% block content %}
+{% load static %}
+  <div class="container-fluid">
+    <br>
+    <br>
+    <br>
+    <div class="border p-4 shadow-lg bg-white">
+      <br>
+      <h3 class="text-center">Catagrory Lists</h3>
+      <hr>
+      <br>
+            
+              {% for cate in all_catagory %}
+              <div class="border p-3 mb-3 shadow">
+               <p>{{cate.name}}
+              <div class="col-md-4 text-start">
+                 <a class="btn btn-info btn-sm" href="#" role="button">Edit</a>
+                 <a class="btn btn-danger btn-sm" href="#" role="button">Delete</a>
+          </div>
+        </p> 
+         </div>
+             {% endfor %}  
+          </div> 
+
+
+         
+
+
+
+      </div>
+      
+</div>
+
+{% endblock %}

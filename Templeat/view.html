@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+{% block content %}
+{% load static %}
+  <div class="container-fluid">
+  <div class="row">
+<div class="col-2">
+  <div class="d-flex flex-column flex-shrink-0 p-3 text-white bg-light" style="width: 220px;">
+    
+    <a href="{% url 'index' specfic.id %}" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
+       <div class="shadow">
+        <img src="{{specfic.img.url}}" class="rounded" alt="..." width="100%" height="100%">                 
+       <p class="text-dark text-center h6">{{specfic.cours_name}}</p>
+      </div>  
+    </a>
+    {% for tutors in specfic.tutoris_set.all %}
+    <ul class="nav nav-pills flex-column mb-auto">
+      <li class="nav-item "><a href="{% url 'ditel' specfic.id tutors.id %}" class="nav-link text-dark" aria-current="page">{{tutors.titel}}  </a></li>
+    </ul>
+    {% endfor %}
+  </div>
+  </div>
+
+  <div class="col-8">
+    <br>
+    <div class="border p-5 mb-5 bg-white shadow-lg rounded-top">
+      <br>
+      <h4 class="text-center" >{{selecte_titel}}</h4>
+      <hr>
+      {% for titel in selecte_titel.bodycors_set.all %}
+      <p class="text-justify">{{titel.body|safe}}</p>
+      <br>
+      <br>
+      <hr>
+    <div class="position-relative">
+      <form action="{% url 'next' selecte_titel.id titel.id  %}" method="POST">
+     {% csrf_token %}
+   <input type="submit" class="btn btn-primary position-absolute top-0 start-0" name="pre" value="Previus">
+   <p class="position-absolute top-0 start-50">{{value}}</p>
+   <input type="submit" class="btn btn-primary position-absolute top-0 end-0" name="next" value="next">
+      </form>
+        </div>
+      <br>
+      {% endfor %}
+  
+
+
+
+    </div>
+ 
+
+  </div>
+
+  <div class="col-2">
+    
+  </div>
+
+</div>
+</div>
+{% endblock %}
